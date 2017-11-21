@@ -21,7 +21,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 The current Swift 3.1 and Swift 3.2 release version of the Beco SDK for iOS is v3.4.0 (20170925).
 
 ### License
-This document, the Beco SDK and the included sample iOS App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/sdk- license-agreement.pdf](https://www.beco.io/sdk- license-agreement.pdf).
+This document, the Beco SDK and the included sample iOS App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/sdk-license-agreement.pdf](https://www.beco.io/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
