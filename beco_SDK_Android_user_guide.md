@@ -21,7 +21,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 The current release version of the Beco SDK for Android is v1.9(12) (20170911).
 
 ### License
-This document, the Beco SDK and the included sample Android App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/sdk- license-agreement.pdf](https://www.beco.io/sdk- license-agreement.pdf).
+This document, the Beco SDK and the included sample Android App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/sdk-license-agreement.pdf](https://www.beco.io/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
