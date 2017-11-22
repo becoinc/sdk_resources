@@ -1,5 +1,5 @@
 # sdk_resources
 
-**[User Guides](./beco_SDK_Android_user_guide.md):** Covers the fundamentals of configuring and building your project with our SDK in Xcode and/or Android Studio.
+**User Guides[Android](./beco_SDK_Android_user_guide.md)and [iOS](./beco_SDK_iOS_user_guide.md):** Cover the fundamentals of configuring and building your project with our SDK in Xcode and Android Studio.
 
-**[SDK Walkthrough](./beco_SDK_iOS_user_guide.md):** Focuses on the various features and functions of the SDK itself for the purposes of integration.
+**SDK Walkthrough:** Focuses on the various features and functions of the SDK itself for the purposes of integration.
