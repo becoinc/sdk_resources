@@ -18,7 +18,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 (anytime)
 
 ### Version
-The current Swift 3.1 and Swift 3.2 release version of the Beco SDK for iOS is v3.4.0 (20170925).
+The current Swift 4.0.3 release version of the Beco SDK for iOS is v3.5.9 (20180103).
 
 ### License
 This document, the Beco SDK and the included sample iOS App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/sdk-license-agreement.pdf](https://www.beco.io/sdk-license-agreement.pdf).
@@ -50,7 +50,7 @@ This document, the Beco SDK and the included sample iOS App are subject to the B
 ## **IDENTIFICATION**
 The SDK is provided to developers as two parts. The first is a distribution archive containing pre-built binary iOS Frameworks. The archive is named in the following format:
 
-`beco_ios_sdk-{date stamp}-{revision}.tar.gz`
+`beco_ios_sdk_v3_5_9-{date stamp}-{revision}.tar.gz`
 
 The second part is this document.
 
@@ -59,7 +59,8 @@ The internal version and build of this software are 3.4(x) with a bundle identif
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
-v3.2(0) to v3.4(0) | Battery life and general performance improvements. iOS 11 / Xcode 9 / Swift 3.2 - 4.0 compatibility. **Notice:** SDK Users who wish to submit apps to the Apple App Store will need to add the following shell script execution to their build process: `bash"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BecoSDK.framework/strip-frameworks.sh"` (see the Build Setup section below). **Notice:** In iOS 11/Xcode 9, several additional privacy keys are required in the Info.plist (see updated Project Configuration section below).
+v3.4(0) to v3.5(9) | Battery life improvements. Improved tracking accuracy. Assign a new HSID with each 'userName'. Add ".authorizedWhenInUse" to valid states to run. iOS 11.x / Xcode 9.2 / Swift 4.0.3 compatibility. **Notice:** SDK Users who wish to submit apps to the Apple App Store will need to add the following shell script execution to their build process: `bash"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BecoSDK.framework/strip-frameworks.sh"` (see the Build Setup section below). **Notice:** In iOS 11/Xcode 9, several additional privacy keys are required in the Info.plist (see updated Project Configuration section below).
+v3.2(0) to v3.4(0) | Battery life and general performance improvements. iOS 11 / Xcode 9 / Swift 3.2 - 4.0 compatibility.
 v3.1(6) to v3.2(0) | Improve behavior in spotty internet conditions (SDK-60). Correct App Store submission problems (SDK-61).
 v3.1(5) to v3.1(6) | Battery life improvements.
 v3.1(4) to v3.1(5) | Ensure delegate is called on location status changes (SDK-55).
@@ -69,7 +70,7 @@ v2.5(2) to v2.6(2) | Beta release with Swift 3.1, Xcode 8.3.1 and Realm 2.5.1 su
 v2.2(1) to v2.5(2) | Documentation and example updates to clarify proper SDK integration procedures with respect to person identifiers. (GIA-36). Behavior consistency enhancements during long running backgrounded operation. Support enhanced features of new Generation Beacon Hardware. New Hardware is backwards compatible.
 
 ## **PACKAGING**
-The Beco SDK is a pre-built iOS Framework compiled from Swift 3.1 and Swift 3.2 code. We have provided two distinct builds for each version of the SDK, which should be compatible with the majority of iOS applications development use cases:
+The Beco SDK is a pre-built iOS Framework compiled from Swift 4 code. We have provided two distinct builds for each version of the SDK, which should be compatible with the majority of iOS applications development use cases:
 
 1. Debug build for arm64, armv7, i386, x86_64
 2. Release build for arm64, armv7, i386, x86_64
@@ -89,10 +90,10 @@ For example, the Debug build of the Beco SDK for the iPhone Simulator will be in
 ## **DEPENDENCIES**
 
 #### Hardware
-The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 9.0. We have tested extensively on the iPhone 5s, iPhone 6/6+/7/7+, iPad Mini and iPad Air 2 on both iOS 9.3.x, 10.3, and 11.0. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
+The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 9.0. We have tested extensively on the iPhone 5s, iPhone 6/6+/7/7+, iPad Mini and iPad Air 2 on both iOS 9.3.x, 10.3, and 11.x. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
 
 #### Software
-This release of the Beco SDK requires Xcode 8 or 9. We support Swift 3.1, Swift 3.2 and Objective-C projects. Headers are provided for Objective-C use, and Beco provides an example Objective-C based application using the Beco SDK. Internally we are using Xcode 9.0 and Swift 3.2.
+This release of the Beco SDK requires Xcode 9. We support Swift 4 and Objective-C projects. Headers are provided for Objective-C use, and Beco provides an example Objective-C based application using the Beco SDK. Internally we are using Xcode 9.2 and Swift 4.0.3.
 
 The `Deployment Target` setting is set to 9.0, thus requiring iOS 9.0 or newer. The SDK has Universal (iPhone and iPad) support and Beco has tested the SDK extensively on both types of devices.
 
@@ -228,6 +229,7 @@ Revision | Summary of Changes
 19 | Update for v3.1.5(0).
 20 | Update for v3.1(6) to v3.2(0).
 21 | Update for v3.4(0).
+22 | Update for v3.5(9).
 
 ## **LEGAL**
 
