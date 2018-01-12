@@ -18,10 +18,10 @@ Additional resources are available at our online developer site [dev.beco.io](de
 (anytime)
 
 ### Version
-The current release version of the Beco SDK for Android is v1.9(12) (20170911).
+The current release version of the Beco SDK for Android is v1.9.12 (20170911).
 
 ### License
-This document, the Beco SDK and the included sample Android App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/sdk-license-agreement.pdf](https://www.beco.io/sdk-license-agreement.pdf).
+This document, the Beco SDK and the included sample Android App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
@@ -59,17 +59,17 @@ The third is the Java source code for the Android Example Application.
 
 The fourth and final part is this document and the generated SDK javadocs.
 
-The internal version and build of this software are 1.9(x) with a package identifier of `io.beco.sdk.android.bas`. The (x) build number is the patch level and is subject to change as minor, compatible changes and fixes are made. This complies with semantic versioning [(http://semver.org/)](http://semver.org/).
+The internal version and build of this software are 1.9.x with a package identifier of `io.beco.sdk.android.bas`. The ".x" build number is the patch level and is subject to change as minor, compatible changes and fixes are made. This complies with semantic versioning [(http://semver.org/)](http://semver.org/).
 
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
-v1.8(6) to v1.9(12) | Increase foreground responsiveness and provide initial support for Android 8, Oreo. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.12.2 `org.altbeacon:android-beacon-library:2.12.2`. **Notice:** This release deprecates support for Android versions prior to 5.0. Earlier releases may work, but are not tested and validated.
-v1.7(5) to v1.8(6) | Fix hit stream reporting in the background. **Notice:** Please change your gradle file to point to the altbeacon library version `org.altbeacon:android- beacon-library:2.8.1` because this fixes an issue with Bluetooth stability.
-v1.7(4) to v1.7(5) | Fix position stability in Android and upgrade the altbeacon library to the latest stable version of 2.10. **Notice:** Please update your gradle file with this version of the altbeacon library `org.altbeacon:android-beacon-library:2.10`.
-v1.7(2) to v1.7(4) | Fix a serialization bug to handle the latest API changes where fields were added. Update build system to Android Gradle stable v2.3.2.
-v1.6(1) to v1.7(2) | Update build system to Android Gradle Stable v2.2.3. Fix a serialization bug related to new backend features. **Notice:** Users must upgrade to be compatible with current generation Beco Cloud services.
-v1.5(0) to v1.6(0) | Change build system to Android Gradle Stable v2.2.2 and CMake 3.4.1 or later. Update to support Android Studio v2.2.2. Enhance Beco API support to Generation 4 Beco Cloud Services. Earlier releases are not forward compatible with Generation 4. This release is compatible with both Generation 3 and Generation 4 Beco Cloud Services.
+v1.8.6 to v1.9.12 | Increase foreground responsiveness and provide initial support for Android 8, Oreo. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.12.2 `org.altbeacon:android-beacon-library:2.12.2`. **Notice:** This release deprecates support for Android versions prior to 5.0. Earlier releases may work, but are not tested and validated.
+v1.7.5 to v1.8.6 | Fix hit stream reporting in the background. **Notice:** Please change your gradle file to point to the altbeacon library version `org.altbeacon:android- beacon-library:2.8.1` because this fixes an issue with Bluetooth stability.
+v1.7.4 to v1.7.5 | Fix position stability in Android and upgrade the altbeacon library to the latest stable version of 2.10. **Notice:** Please update your gradle file with this version of the altbeacon library `org.altbeacon:android-beacon-library:2.10`.
+v1.7.2 to v1.7.4 | Fix a serialization bug to handle the latest API changes where fields were added. Update build system to Android Gradle stable v2.3.2.
+v1.6.1 to v1.7.2 | Update build system to Android Gradle Stable v2.2.3. Fix a serialization bug related to new backend features. **Notice:** Users must upgrade to be compatible with current generation Beco Cloud services.
+v1.5.0 to v1.6.0 | Change build system to Android Gradle Stable v2.2.2 and CMake 3.4.1 or later. Update to support Android Studio v2.2.2. Enhance Beco API support to Generation 4 Beco Cloud Services. Earlier releases are not forward compatible with Generation 4. This release is compatible with both Generation 3 and Generation 4 Beco Cloud Services.
 
 ## **PACKAGING**
 The Beco SDK is a pre-built Android archive compiled from Java 7 code with native libraries for enhanced performance. We have provided distinct builds of the SDK, which should be compatible with the majority of Android application development use cases:
@@ -181,14 +181,14 @@ The SDK will hit in the background for roughly fifteen minutes before the OS pre
 Revision | Summary of Changes
 ------------ | -------------
 1 | Initial document version.
-2 | Adjust for hybrid build system and update for SDK v1.1(8).
-3 | Update for version SDK v1.3(0).
-4 | Update for version SDK v1.6(0).
-5 | Update for version SDK v1.7(2).
-6 | Update for version SDK v1.7(4).
-7 | Update for version SDK v1.7(5).
-8 | Update for version SDK v1.8(6).
-9 | Update for version SDK v1.9(12).
+2 | Adjust for hybrid build system and update for SDK v1.1.8.
+3 | Update for version SDK v1.3.0.
+4 | Update for version SDK v1.6.0.
+5 | Update for version SDK v1.7.2.
+6 | Update for version SDK v1.7.4.
+7 | Update for version SDK v1.7.5.
+8 | Update for version SDK v1.8.6.
+9 | Update for version SDK v1.9.12.
 
 ## **LEGAL**
 
