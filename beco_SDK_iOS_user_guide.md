@@ -21,7 +21,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 The current Swift 4.0.3 release version of the Beco SDK for iOS is v3.5.9 (20180103).
 
 ### License
-This document, the Beco SDK and the included sample iOS App are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/sdk-license-agreement.pdf](https://www.beco.io/sdk-license-agreement.pdf).
+This document, the Beco SDK and the included samples/Example iOS Apps are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
@@ -54,7 +54,7 @@ The SDK is provided to developers as two parts. The first is a distribution arch
 
 The second part is this document.
 
-The internal version and build of this software are 3.4(x) with a bundle identifier of `com.beco.BecoSDK`. The (x) build number is the patch level and is subject to change as minor, compatible changes and fixes are made. This complies with semantic versioning [(http://semver.org/)](http://semver.org/).
+The internal version and build of this software are 3.5(x) with a bundle identifier of `com.beco.BecoSDK`. The (x) build number is the patch level and is subject to change as minor, compatible changes and fixes are made. This complies with semantic versioning [(http://semver.org/)](http://semver.org/).
 
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
@@ -90,7 +90,7 @@ For example, the Debug build of the Beco SDK for the iPhone Simulator will be in
 ## **DEPENDENCIES**
 
 #### Hardware
-The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 9.0. We have tested extensively on the iPhone 5s, iPhone 6/6+/7/7+, iPad Mini and iPad Air 2 on both iOS 9.3.x, 10.3, and 11.x. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
+The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 9.0. We have tested extensively on the iPhone 5s, iPhone 6/6+/7/7+, iPad Mini and iPad Air 2 on both iOS 10.3, and 11.x. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
 
 #### Software
 This release of the Beco SDK requires Xcode 9. We support Swift 4 and Objective-C projects. Headers are provided for Objective-C use, and Beco provides an example Objective-C based application using the Beco SDK. Internally we are using Xcode 9.2 and Swift 4.0.3.
@@ -130,7 +130,7 @@ In text form (viewed as source code) these keys are as follows:
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/iOS_info_plist_keys_source_view.png)
 
 ## **BUILD SETUP**
-This section discusses setting up Xcode to compile and link against the Beco SDK for a Swift 3.1 Project. *Setup for Objective-C projects is similar and extra steps are noted inline*.
+This section discusses setting up Xcode to compile and link against the Beco SDK for a Swift 4 Project. *Setup for Objective-C projects is similar and extra steps are noted inline*.
 
 #### Step 1
 Extract the SDK into a folder. We recommend that you place it in version control with any other third-party libraries/frameworks.
@@ -196,7 +196,7 @@ The main interface between your App and Beco location data is via the delegate f
 
 It is up to your application to define a delegate that implements the `BecoSDKDelegate` protocol and then set the `delegate` field to that object. The protocol defines a set of methods that you must implement in order to receive events from the Beco SDK.
 
-Detailed information on each of the protocol delegate methods, thread behavior and other information is provided inline with the protocol definition headers and Swift modules included with the Beco SDK. Please refer to the source level documentation, Quick Help and Sample Applications for more information.
+Detailed information on each of the protocol delegate methods, thread behavior and other information is provided inline with the protocol definition headers and Swift modules included with the Beco SDK. Please refer to the source level documentation, Quick Help and Example Apps for more information.
 
 #### SDK Behavior Details
 Once you call `startScan` the SDK will continue to scan for beacons until `stopScan` is called. The SDK will automatically stay running in the background and wake the phone up when possible to process beacon information when permitted by iOS. The SDK will also automatically stay running in the background after either a phone reboot or double-tap-home swipe-kill, as long as the phone has been unlocked at least once.
@@ -226,7 +226,7 @@ Revision | Summary of Changes
 16 | Update for Beta Build with Swift 3.1 support.
 17 | Update for v2.8(0).
 18 | Update for v3.1(4).
-19 | Update for v3.1.5(0).
+19 | Update for v3.1(5).
 20 | Update for v3.1(6) to v3.2(0).
 21 | Update for v3.4(0).
 22 | Update for v3.5(9).
