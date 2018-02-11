@@ -18,7 +18,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 (anytime)
 
 ### Version
-The current Swift 4.0.3 release version of the Beco SDK for iOS is v3.5.9 (20180103).
+The current Swift 4.0.3 release version of the Beco SDK for iOS is v3.5.15 (20180209).
 
 ### License
 This document, the Beco SDK and the included samples/Example iOS Apps are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
@@ -50,7 +50,7 @@ This document, the Beco SDK and the included samples/Example iOS Apps are subjec
 ## **IDENTIFICATION**
 The SDK is provided to developers as two parts. The first is a distribution archive containing pre-built binary iOS Frameworks. The archive is named in the following format:
 
-`beco_ios_sdk_v3_5_9-{date stamp}-{revision}.tar.gz`
+`beco_ios_sdk_v3_5_15-{date stamp}-{revision}.tar.gz`
 
 The second part is this document.
 
@@ -59,7 +59,8 @@ The internal version and build of this software are 3.5(x) with a bundle identif
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
-v3.4(0) to v3.5(9) | Battery life improvements. Improved tracking accuracy. Assign a new HSID with each 'userName'. Add ".authorizedWhenInUse" to valid states to run. iOS 11.x / Xcode 9.2 / Swift 4.0.3 compatibility. **Notice:** SDK Users who wish to submit apps to the Apple App Store will need to add the following shell script execution to their build process: `bash"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BecoSDK.framework/strip-frameworks.sh"` (see the Build Setup section below). **Notice:** In iOS 11/Xcode 9, several additional privacy keys are required in the Info.plist (see updated Project Configuration section below).
+v3.5(9) to v3.5(15) | Improved beacon detection. Make 'username' case-insensitive. Enhancements to support future server upgrades. Cleanup '@objC' runtime warnings. **Notice:** SDK Users who wish to submit apps to the Apple App Store will need to add the following shell script execution to their build process: `bash"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BecoSDK.framework/strip-frameworks.sh"` (see the Build Setup section below). **Notice:** In iOS 11/Xcode 9, several additional privacy keys are required in the Info.plist (see updated Project Configuration section below).
+v3.4(0) to v3.5(9) | Battery life improvements. Improved tracking accuracy. Assign a new HSID with each 'userName'. Add ".authorizedWhenInUse" to valid states to run. iOS 11.x / Xcode 9.2 / Swift 4.0.3 compatibility.
 v3.2(0) to v3.4(0) | Battery life and general performance improvements. iOS 11 / Xcode 9 / Swift 3.2 - 4.0 compatibility.
 v3.1(6) to v3.2(0) | Improve behavior in spotty internet conditions (SDK-60). Correct App Store submission problems (SDK-61).
 v3.1(5) to v3.1(6) | Battery life improvements.
@@ -90,7 +91,7 @@ For example, the Debug build of the Beco SDK for the iPhone Simulator will be in
 ## **DEPENDENCIES**
 
 #### Hardware
-The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 9.0. We have tested extensively on the iPhone 5s, iPhone 6/6+/7/7+, iPad Mini and iPad Air 2 on both iOS 10.3, and 11.x. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
+The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 10.0. We have tested extensively on the iPhone SE, iPhone 6/6+/7/7+, iPad Mini and iPad Air 2 on both iOS 10.3, and 11.x. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
 
 #### Software
 This release of the Beco SDK requires Xcode 9. We support Swift 4 and Objective-C projects. Headers are provided for Objective-C use, and Beco provides an example Objective-C based application using the Beco SDK. Internally we are using Xcode 9.2 and Swift 4.0.3.
@@ -230,6 +231,7 @@ Revision | Summary of Changes
 20 | Update for v3.1(6) to v3.2(0).
 21 | Update for v3.4(0).
 22 | Update for v3.5(9).
+23 | Update for v3.5(15).
 
 ## **LEGAL**
 
