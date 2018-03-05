@@ -1,5 +1,8 @@
 **Beco Mobile Software Development Kit License Agreement**
 
+Note: This text is for _reference only_.
+The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
+
 Your use of the Beco Mobile Software Development Kit (the “_SDK_”) is subject to the following terms and conditions (the “_SDK
 Terms_”). You may not use the SDK other than under these SDK Terms. YOUR USE OF THE SDK INDICATES ACCEPTANCE OF
 THE SDK TERMS. You may also record your acceptance of the SDK Terms by clicking to accept or agree to the SDK Terms if
