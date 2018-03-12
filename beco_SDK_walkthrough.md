@@ -15,13 +15,13 @@ Additional resources are available at our online developer site [dev.beco.io](de
 (anytime)
 
 #### License
-This document, the Beco SDK for iOS and Android, the Beco Cordova SDK, and the included sample applications are subject to the Beco SDK license agreement. A copy of this agreement is available at [www.beco.io/sdk-license-agreement.pdf](www.beco.io/sdk-license-agreement.pdf).
+This document, the Beco SDK for iOS and Android, the Beco Cordova SDK, and the included sample applications are subject to the Beco SDK license agreement. A reference copy is included in the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 ##### SDK Overview
 1. Core
 2. Event Callback Functions
-3. Advanced Performance Settings/Calls
+3. Advanced Performance Settings
 4. Utility / Information Functions
 
 ##### Using the SDK
@@ -83,10 +83,10 @@ Used to register callback functions that will be called periodically in response
 * onReceiveLocationData
 * onReportError
 
-#### Advanced Performance Settings/Calls
-Used to view or modify adjustment variables meant to tweak the performance of the SDK.
+#### Advanced Performance Settings
+Used to view or modify adjustment variables meant to customize the performance of the SDK in very specific circumstances.
 
-[**NOTE**]: The SDK has pre-set default values to ensure reliable indoor positioning performance. There are very rare cases where these defaults may need adjustment, and even then should only be modified after review with our Support Team in order to preserve system performance. Open a ticket via [support@beco.io](support@beco.io) if you experience unexpected location performance.
+[**NOTE**]: The SDK has pre-set default values to ensure reliable indoor positioning performance. The cases where these defaults may need adjustment are extremely rare, and even then should only be modified after review with our Support Team in order to preserve system performance. Open a ticket via [support@beco.io](support@beco.io) if you experience unexpected location performance.
 
 ```javascript
 print("current Threshold: \(sdk.ThresholdAdjustment)")
@@ -299,11 +299,11 @@ The SDK includes several advanced performance settings to adjust how the positio
 
 `ThresholdAdjustment`
 
-This value adjusts the positioning sensitivity of the handset.
+This value adjusts the positioning sensitivity of the SDK.
 
 The SDK automatically adjusts to ensure reliable indoor positioning, and is pre-tuned for optimal performance. The Beco default values for iOS and Android should be used in all cases, and will be set automatically by the SDK.
 
-In the rare case an adjusted value will be needed, it can be set in the following manner:
+In the rare case an adjusted value is needed, it can be set in the following manner:
 
 ```javascript
 sdk.thresholdAdjustment = newThres;

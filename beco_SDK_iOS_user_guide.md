@@ -21,7 +21,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 The current Swift 4.0.3 release version of the Beco SDK for iOS is v3.5.15 (20180209).
 
 ### License
-This document, the Beco SDK and the included samples/Example iOS Apps are subject to the Beco SDK license agreement. A copy of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
+This document, the Beco SDK and the included sample iOS Apps are subject to the Beco SDK license agreement. A reference copy is included in the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
@@ -39,7 +39,7 @@ This document, the Beco SDK and the included samples/Example iOS Apps are subjec
 6. Building the Example App
 7. Beco SDK API and Usage
   * Standard API
-  * Advanced Performance Tuning Calls
+  * Advanced Performance Settings
   * Main Interface
   * SDK Behavior Details
 8. Document Revision Summary
@@ -184,11 +184,13 @@ The Beco SDK for iOS Example App comes with a build environment all set up for y
 
 In keeping with other aspects of the Beco System, the SDK has been designed to have a very simple, minimal mandatory interface with a few optional aspects to provide enhancements.
 
-#### Standard API:
+#### Standard API
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/iOS_standard_API.png)
 
-#### Advanced Performance Tuning Calls:
+#### Advanced Performance Settings
+
+[**NOTE**]: The SDK has pre-set default values for these settings to ensure reliable indoor positioning performance. The cases where these defaults may need adjustment are extremely rare, and even then should only be modified after review with our Support Team in order to preserve system performance. Open a ticket via [support@beco.io](support@beco.io) if you experience unexpected location performance. See our SDK Walkthrough document for more details.
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/iOS_advanced_performance_tuning_calls.png)
 
