@@ -30,10 +30,9 @@ Additional resources are available at our online developer site [dev.beco.io](de
 The current release version of the Beco SDK for Android is v1.9(13) (20180304).
 
 ### License
-This document, the Beco SDK and the included sample Android App are subject
-to the Beco SDK license agreement, a reference copy is
-included in the [LICENSE.md](./LICENSE.md) file.
-The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
+This document, the Beco SDK and the included sample Android App are subject to
+the Beco SDK license agreement. A reference copy is included in
+the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
@@ -52,7 +51,7 @@ The *governing copy* of this agreement is available at [https://www.beco.io/file
 6. Building the Example App
 7. Beco SDK API and Usage
   * Standard API
-  * Advanced Performance Tuning Calls
+  * Advanced Performance Settings
   * Main Interface
   * SDK Behavior Details
 8. Document Revision Summary
@@ -219,7 +218,15 @@ aspects to provide enhancements.
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/Android_standard_API.png)
 
-#### Advanced Performance Tuning Calls
+#### Advanced Performance Settings
+
+[**NOTE**]: The SDK has pre-set default values for these settings to
+ ensure reliable indoor positioning performance. The cases where these
+ defaults may need adjustment are extremely rare, and even then should only
+ be modified after review with our Support Team in order to preserve system
+ performance. Open a ticket via [support@beco.io](support@beco.io)
+ if you experience unexpected location performance.
+ See our SDK Walkthrough document for more details.
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/Android_advanced_performance_tuning_calls.png)
 
