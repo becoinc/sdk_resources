@@ -21,10 +21,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 
 >**Questions?**
 
->+1 617 500 6780 (M-F 9AM-5PM EST)
-
 >[support@beco.io](support@beco.io)
-(anytime)
 
 ### Version
 The current release version of the Beco SDK for Android is v1.9(13) (20180304).
