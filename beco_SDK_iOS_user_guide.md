@@ -12,13 +12,10 @@ Additional resources are available at our online developer site [dev.beco.io](de
 
 >**Questions?**
 
->+1 617 500 6780 (M-F 9AM-5PM EST)
-
 >[support@beco.io](support@beco.io)
-(anytime)
 
 ### Version
-The current Swift 4.1 release version of the Beco SDK for iOS is v3.6.4 (20180427).
+The current Swift 4.1 release version of the Beco SDK for iOS is v3.7.2 (20180825).
 
 ### License
 This document, the Beco SDK and the included sample iOS Apps are subject to the Beco SDK license agreement. A reference copy is included in the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
@@ -50,17 +47,17 @@ This document, the Beco SDK and the included sample iOS Apps are subject to the 
 ## **IDENTIFICATION**
 The SDK is provided to developers as two parts. The first is a distribution archive containing pre-built binary iOS Frameworks. The archive is named in the following format:
 
-`beco_ios_sdk_v3_6_4-{date stamp}-{revision}.tar.gz`
+`beco_ios_sdk_v3_7_2-{date stamp}-{revision}.tar.gz`
 
 The second part is this document.
 
-The internal version and build of this software are 3.5(x) with a bundle identifier of `com.beco.BecoSDK`. The (x) build number is the patch level and is subject to change as minor, compatible changes and fixes are made. This complies with semantic versioning [(http://semver.org/)](http://semver.org/).
+The internal version and build of this software are 3.7(x) with a bundle identifier of `com.beco.BecoSDK`. The (x) build number is the patch level and is subject to change as minor, compatible changes and fixes are made. This complies with semantic versioning [(http://semver.org/)](http://semver.org/).
 
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
-v3.5(15) to v3.6(4) | Consider "grouped" beacons as one "place" when registering hits. Support for battery powered beacons. Save 'userData' from server in 'Place' and 'Location' object returned in callback. Fixed a crash bug.   **Notice:** SDK Users who wish to submit apps to the Apple App Store will need to add the following shell script execution to their build process: `bash"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BecoSDK.framework/strip-frameworks.sh"` (see the Build Setup section below). **Notice:** In iOS 11/Xcode 9, several additional privacy keys are required in the Info.plist (see updated Project Configuration section below).
-v3.5(9) to v3.5(15) | Improved beacon detection. Make 'username' case-insensitive. Enhancements to support future server upgrades. Cleanup '@objC' runtime warnings.
+v3.6(4) to v3.7(2) | Code build process changes: Make 'BecoSDKDelegate' a weak reference. Remove XCGLogger dependency.    Changes to decrease power consumption when app is in the background: Change maximum wake time from 14s to 11s. Allow the app to sleep sooner. Adjust sleep timer when position isn't moving. Add new internal variable 'scanInterval' which adjusts how aggressively the SDK wakes the device in the background. The default value for 'scanInterval' is 4 with a range of 0 to 300, with higher numbers being less aggressive.  **Notice:** SDK Users who wish to submit apps to the Apple App Store will need to add the following shell script execution to their build process: `bash"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BecoSDK.framework/strip-frameworks.sh"` (see the Build Setup section below). **Notice:** In iOS 11/Xcode 9, several additional privacy keys are required in the Info.plist (see updated Project Configuration section below).
+v3.5(15) to v3.6(4) | Consider "grouped" beacons as one "place" when registering hits. Support for battery powered beacons. Save 'userData' from server in 'Place' and 'Location' object returned in callback. Fixed a crash bug.v3.5(9) to v3.5(15) | Improved beacon detection. Make 'username' case-insensitive. Enhancements to support future server upgrades. Cleanup '@objC' runtime warnings.
 v3.4(0) to v3.5(9) | Battery life improvements. Improved tracking accuracy. Assign a new HSID with each 'userName'. Add ".authorizedWhenInUse" to valid states to run. iOS 11.x / Xcode 9.2 / Swift 4.0.3 compatibility.
 v3.2(0) to v3.4(0) | Battery life and general performance improvements. iOS 11 / Xcode 9 / Swift 3.2 - 4.0 compatibility.
 v3.1(6) to v3.2(0) | Improve behavior in spotty internet conditions (SDK-60). Correct App Store submission problems (SDK-61).
@@ -92,7 +89,7 @@ For example, the Debug build of the Beco SDK for the iPhone Simulator will be in
 ## **DEPENDENCIES**
 
 #### Hardware
-The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 10.0. We have tested extensively on the iPhone SE, iPhone 6/6+/7/7+, iPad Mini and iPad Air 2 on both iOS 10.3, and 11.x. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
+The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible iOS device running at least iOS 10.0. We have tested extensively on the iPhone SE, iPhone 5/6/6+/7/7+/8/X, iPad Mini and iPad Air 2 on both iOS 10.3, and 11.x. We expect other iOS devices and versions to work similarly, but they have not been tested by Beco.
 
 #### Software
 This release of the Beco SDK requires Xcode 9. We support Swift 4.x and Objective-C projects. Headers are provided for Objective-C use, and Beco provides an example Objective-C based application using the Beco SDK. Internally we are using Xcode 9.3 and Swift 4.1.
@@ -100,10 +97,7 @@ This release of the Beco SDK requires Xcode 9. We support Swift 4.x and Objectiv
 The `Deployment Target` setting is set to 9.0, thus requiring iOS 9.0 or newer. The SDK has Universal (iPhone and iPad) support and Beco has tested the SDK extensively on both types of devices.
 
 #### Third Party Libraries
-The Beco SDK depends on the following third party libraries:
-* **The XCGLogger library version 5.0.1+**, which is available from GitHub (https://github.com/DaveWoodCom/XCGLogger). MIT License.
-
-We’ve included pre-built binaries of this software (v6.0.2) with the SDK and Example Applications.
+The latest release of Beco SDK has removed dependancy on third party libraries.
 
 #### Environment
 The Beco SDK is designed to work with Beco Beacons exclusively. Generic BLE beacons or iBeacon devices from other vendors are not supported.
@@ -138,7 +132,7 @@ This section discusses setting up Xcode to compile and link against the Beco SDK
 Extract the SDK into a folder. We recommend that you place it in version control with any other third-party libraries/frameworks.
 
 #### Step 2
-Select the App project in Xcode. On the “Info” screen, add both `BecoSDK` and `XCGLogger` to the `Embedded Binaries` section.
+Select the App project in Xcode. On the “Info” screen, add `BecoSDK` to the `Embedded Binaries` section.
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/iOS_build_setup_step2-1.png)
 
@@ -150,7 +144,7 @@ Use "Add Other."
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/iOS_build_setup_step2-3.png)
 
-Browse to the location of the BecoSDK and XCGLoggers.
+Browse to the location of the BecoSDK.
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/iOS_build_setup_step2-4.png)
 
@@ -236,6 +230,7 @@ Revision | Summary of Changes
 22 | Update for v3.5(9).
 23 | Update for v3.5(15).
 23 | Update for v3.6(4).
+24 | Update for v3.7(2).
 
 ## **LEGAL**
 
