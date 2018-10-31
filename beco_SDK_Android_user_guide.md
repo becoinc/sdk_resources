@@ -24,7 +24,7 @@ Additional resources are available at our online developer site [dev.beco.io](de
 >[support@beco.io](support@beco.io)
 
 ### Version
-The current release version of the Beco SDK for Android is v1.9(13) (20180304).
+The current release version of the Beco SDK for Android is v1.9(14) (20181030).
 
 ### License
 This document, the Beco SDK and the included sample Android App are subject to
@@ -77,6 +77,7 @@ This complies with semantic versioning [(http://semver.org/)](http://semver.org/
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
+v1.9(13) to v1.9(14) | Performed a concurrency refactor to fix an issue where the SDK might cause the host App UI to freeze resulting in an Android "Not Responding" dialog, or the App to crash under certain circumstances. Maintenacnce around altbeacon integration and Beacon detection. Maintenance to improve sugarORM integration. Resolved an issue where startScan may not work on first try after App launch. Fixed an issue where calling stopScan did not hault Beacon scanning on newer versions of Android. Updated build system to Android Gradle v4.6. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.15.1 `org.altbeacon:android-beacon-library:2.15.1`.  
 v1.9(12) to	v1.9(13) | Fixed thread race condition in messaging	code. Code cleanup and dependency update. Please update your build.gradle file to use the updated versions of our third-party dependencies. Refer to the example application `build.gradle`	file for exact version callouts. This release removes support for Android versions prior to 5.1. API level 22. Earlier releases will not work.
 v1.8.6 to v1.9.12 | Increase foreground responsiveness and provide initial support for Android 8, Oreo. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.12.2 `org.altbeacon:android-beacon-library:2.12.2`. **Notice:** This release deprecates support for Android versions prior to 5.0. Earlier releases may work, but are not tested and validated.
 v1.7.5 to v1.8.6 | Fix hit stream reporting in the background. **Notice:** Please change your gradle file to point to the altbeacon library version `org.altbeacon:android- beacon-library:2.8.1` because this fixes an issue with Bluetooth stability.
@@ -99,17 +100,16 @@ library file has support for multiple platforms and architectures.
 ## **DEPENDENCIES**
 
 #### Hardware
-The Beco SDK requires a Bluetooth 4.0 9BLE, Bluetooth Smart) compatible
+The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible
  Android device running at least Android Lollipop (5.1), API Level 22+.
 
-We test extensively on the Samsung Galaxy S5 Phone (6.0.1),
-Amazon Kindle Fire (5.1.1) and LG/Google Nexus 5x (8.0).
-We have recently added a Samsung Galaxy S7 (7.1.1) and Galaxy S8 (7.1.1)
-to the test set.
+We have tested extensively on the following hardware models and Android OS versions:
 
-Initial testing has been performed on Android 8.0 and we have not
-identified any major issues, however Android 8 support should be
-considered *beta* quality.
+- Samsung Galaxy S7 (Android 7.0)
+- Samsung Galaxy S8 (Android 8.0)
+- Samsung Galaxy S9 (Android 8.0)
+- Google Pixel 2 (Android 9.0)
+
 We expect other Android devices to work similarly,
 but they have not been tested by Beco.
 
@@ -123,23 +123,23 @@ parties should contact us for further details.
 This release of the Beco SDK requires version 23 or later of the Android SDK.
 We support Java projects, although Kotlin projects should work.
 
-The SDK was developed using Android Studio 3.0.1 with the Gradle 4.1 build system.
+The SDK was developed using Android Studio 3.2 with the Gradle 4.6 build system.
 
 Both the SDK and the Example Application use the stable Android Gradle plug-in
-v3.0.1. The SDK uses an external CMake based build system using the Android NDK.
+v3.2.0. The SDK uses an external CMake based build system using the Android NDK.
 
 #### Third Party Libraries
 The Beco SDK depends on the following 3rd party libraries:
 * `org.springframework.android:spring-android-rest-template:2.0.0.M4`
 * `com.fasterxml.jackson.core:jackson-databind:2.3.2`
-* `org.altbeacon:android-beacon-library:2.12.4`
+* `org.altbeacon:android-beacon-library:2.15.1`
 * `com.github.satyan:sugar:1.5`
 
 These libraries can be automatically obtained from the standard jcenter repositories via Gradle.
 
 >#### Special Setup
-We’ve found that the `Instant Run` feature in Android Studio 2.1.2 and
-possibly later versions have certain bugs which prevent some of our third
+We’ve found that the `Instant Run` feature in Android Studio 2.1.2, and
+possibly later versions, has certain bugs which prevent some of our third
 party dependencies from initializing correctly. Please disable
 the `Instant Run` feature of the IDE in order to properly integrate the Beco SDK.
 
@@ -202,8 +202,8 @@ and compile the application to a self-signed APK file for installation
 on your Android device. The APKs will be in the *build/outputs/apk* directory
 relative to the source code.
 
-Our development systems use Mac OS 10.11.x, however any Unix style OS where
- Gradle 4.1 is supported should work. It may be possible to build on Windows
+Our development systems use Mac OS 10.13.x, however any Unix style OS where
+ Gradle 4.6 is supported should work. It may be possible to build on Windows
  as well, but Beco does not test or support this environment for development.
 
 ## **BECO SDK API AND USAGE**
@@ -250,15 +250,11 @@ unregistered handsets.
 Once you call `startScan` the SDK will continue to scan for beacons
 until `stopScan` is called. The SDK will automatically stay running in the
 background and wake the phone up when possible to process beacon information
-when permitted by the Android OS. The SDK will also automatically stay
+when permitted by the OS. The SDK is designed to automatically stay
 running in the background if the App is swiped closed.
 
-The SDK will hit in the background for roughly fifteen minutes before the
-OS prevents the SDK from waking the phone to process beacon information.
-Light user interaction with the device every fifteen minutes will allow the
-SDK to continue running the background consistently; less frequent interaction
-will result in inconsistent background behavior.
-This behavior is heavily dependent on OS version.
+We are aware that currently background behavior on Android is heavily dependent on OS version and the settings a user chooses to enable. Contact us for specific details.
+
 
 ## **DOCUMENT REVISION SUMMARY**
 Revision | Summary of Changes
@@ -272,7 +268,8 @@ Revision | Summary of Changes
 7 | Update for version SDK v1.7(5).
 8 | Update for version SDK v1.8(6).
 9 | Update for version SDK v1.9(12).
-10 | Update for SDK version v1.9(13).
+10 | Update for SDK v1.9(13).
+11 | Update for SDK v1.9(14).
 
 ## **LEGAL**
 
