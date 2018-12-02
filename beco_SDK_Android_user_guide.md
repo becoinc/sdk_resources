@@ -7,10 +7,10 @@ to augment their Android applications with location awareness and analytics.
 
 The Beco SDK provides developers a rapid path towards Beco Beacon integration.
 While other solutions focus on providing a light wrapper to existing Android
- beacon APIs, the Beco SDK for Android has taken the approach of providing a
- turn-key solution with a greatly simplified API, designed to let users
- leverage the power of the Beco Cloud service while being as easy to integrate
-  as Beco Beacons are to deploy.
+beacon APIs, the Beco SDK for Android has taken the approach of providing a
+turn-key solution with a greatly simplified API, designed to let users
+leverage the power of the Beco Cloud service while being as easy to integrate
+as Beco Beacons are to deploy.
 
 Here, we will cover the fundamentals of configuring and building your project
 with our SDK in Android Studio. Be sure to also read our SDK Walkthrough
@@ -21,13 +21,13 @@ Additional resources are available at our online developer site [dev.beco.io](de
 
 >**Questions?**
 
->[support@beco.io](support@beco.io)
+>[becosupport@convene.com](becosupport@convene.com)
 
 ### Version
-The current release version of the Beco SDK for Android is v1.9(14) (20181030).
+The current release version of the Beco SDK for Android is v1.9(15) (20181130).
 
 ### License
-This document, the Beco SDK and the included sample Android App are subject to
+This document, the Beco SDK and the included Android example App are subject to
 the Beco SDK license agreement. A reference copy is included in
 the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
 
@@ -77,6 +77,7 @@ This complies with semantic versioning [(http://semver.org/)](http://semver.org/
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
+v1.9(14) to v1.9(15) | Fixed multiple memory issues in the SDK. Fixed multiple crashes in the SDK. Forked v2.15.3-beta1 of AltBeacon to patch our own fix for a crash discovered in the BeaconService class, as well as incorporate a fix for known memory issue in v2.15.1 (v2.15.2 was found to have incomparable positioning behavior to the v2.15.3-beta1, even though it fixed the memory issue). **Notice:** Because we forked the AltBeacon library to resolve the issue we found, the AltBeacon lib is now going to be a local aar (or propped). It will need to be added to your "libs" folder and your will also need to replace your gradle line with this one: compile files('libs/android-beacon-library-release.aar’). We also discovered a limitation to the current AltBeacon code which creates unexpected scanning and beacon detection behavior when the App returns to the Foreground state from the Background state. Calling startScan at each instance of this state transition resolves the issue as a temporary workaround until this is addressed in their code, and we have provided an example implementation of the fix in the MainActivity of our Example App (included with the other release artifacts). See the "onStart()" method.
 v1.9(13) to v1.9(14) | Performed a concurrency refactor to fix an issue where the SDK might cause the host App UI to freeze resulting in an Android "Not Responding" dialog, or the App to crash under certain circumstances. Maintenacnce around altbeacon integration and Beacon detection. Maintenance to improve sugarORM integration. Resolved an issue where startScan may not work on first try after App launch. Fixed an issue where calling stopScan did not hault Beacon scanning on newer versions of Android. Updated build system to Android Gradle v4.6. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.15.1 `org.altbeacon:android-beacon-library:2.15.1`.  
 v1.9(12) to	v1.9(13) | Fixed thread race condition in messaging	code. Code cleanup and dependency update. Please update your build.gradle file to use the updated versions of our third-party dependencies. Refer to the example application `build.gradle`	file for exact version callouts. This release removes support for Android versions prior to 5.1. API level 22. Earlier releases will not work.
 v1.8.6 to v1.9.12 | Increase foreground responsiveness and provide initial support for Android 8, Oreo. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.12.2 `org.altbeacon:android-beacon-library:2.12.2`. **Notice:** This release deprecates support for Android versions prior to 5.0. Earlier releases may work, but are not tested and validated.
@@ -132,10 +133,10 @@ v3.2.0. The SDK uses an external CMake based build system using the Android NDK.
 The Beco SDK depends on the following 3rd party libraries:
 * `org.springframework.android:spring-android-rest-template:2.0.0.M4`
 * `com.fasterxml.jackson.core:jackson-databind:2.3.2`
-* `org.altbeacon:android-beacon-library:2.15.1`
+* `AltBeacon` (a custom fork of the publically available AltBeacon v2.15.3-beta1)
 * `com.github.satyan:sugar:1.5`
 
-These libraries can be automatically obtained from the standard jcenter repositories via Gradle.
+These libraries can be automatically obtained from the standard jcenter repositories via Gradle. **Note:** Our AltBeacon code fork will need to be a local aar (or propped), and the file is included in our SDK installation package along with the other  artifacts for this release (file name `android-beacon-library-release.aar`). Please be sure to read our release notes included above which contain important implementation steps to ensure optimal performance of the SDK with our AltBeacon code fork.
 
 >#### Special Setup
 We’ve found that the `Instant Run` feature in Android Studio 2.1.2, and
@@ -270,6 +271,7 @@ Revision | Summary of Changes
 9 | Update for version SDK v1.9(12).
 10 | Update for SDK v1.9(13).
 11 | Update for SDK v1.9(14).
+12 | Update for SDK v1.9(15). 
 
 ## **LEGAL**
 
