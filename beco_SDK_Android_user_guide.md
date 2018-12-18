@@ -17,14 +17,14 @@ with our SDK in Android Studio. Be sure to also read our SDK Walkthrough
 document, which focuses on the various features and functions of the SDK
 itself for the purposes of integration.
 
-Additional resources are available at our online developer site [dev.beco.io](dev.beco.io).
+Additional resources are available at our online developer site [dev.beco.io](dev.beco.io). Please contact us at the email listed below if you require the password to log in.
 
 >**Questions?**
 
 >[becosupport@convene.com](becosupport@convene.com)
 
 ### Version
-The current release version of the Beco SDK for Android is v1.9(15) (20181130).
+The current release version of the Beco SDK for Android is v1.9(16) (20181214).
 
 ### License
 This document, the Beco SDK and the included Android example App are subject to
@@ -77,7 +77,8 @@ This complies with semantic versioning [(http://semver.org/)](http://semver.org/
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
-v1.9(14) to v1.9(15) | Fixed multiple memory issues in the SDK. Fixed multiple crashes in the SDK. Forked v2.15.3-beta1 of AltBeacon to patch our own fix for a crash discovered in the BeaconService class, as well as incorporate a fix for known memory issue in v2.15.1 (v2.15.2 was found to have incomparable positioning behavior to the v2.15.3-beta1, even though it fixed the memory issue). **Notice:** Because we forked the AltBeacon library to resolve the issue we found, the AltBeacon lib is now going to be a local aar (or propped). It will need to be added to your "libs" folder and your will also need to replace your gradle line with this one: compile files('libs/android-beacon-library-release.aar’). We also discovered a limitation to the current AltBeacon code which creates unexpected scanning and beacon detection behavior when the App returns to the Foreground state from the Background state. Calling startScan at each instance of this state transition resolves the issue as a temporary workaround until this is addressed in their code, and we have provided an example implementation of the fix in the MainActivity of our Example App (included with the other release artifacts). See the "onStart()" method.
+v1.9(15) to v.1.9(16) | Incorporated the now stable AltBeacon library release v2.15.4, which incorporates our indepenent fix for the crash we discovered in the v2.15.3-beta1. **Notice:** Because this AltBeacon release incorporates our independent fix natively, the special setup requirements for our SDK v1.9(15) release are no longer needed: AltBeacon lib no longer needs to be a local aar (or propped) and the custom gradle line is no longer needed. Please update your build.gradle file to use the AltBeacon library version 2.15.4 `org.altbeacon:android-beacon-library:2.15.4`. **Notice:** Due to a limitation still present in the AltBeacon code, unexpected scanning and beacon detection behavior occurs when an App returns to the Foreground state from the Background state. Calling `startScan` in your code at each instance of this state transition resolves the issue as a temporary workaround until this is addressed in the AltBeacon lib. We have provided an example implementation of the fix in the `MainActivity` of our Example App (included with the other release artifacts). See the `onStart()` method.
+v1.9(14) to v1.9(15) | Fixed multiple memory issues in the SDK. Fixed multiple crashes in the SDK. Forked v2.15.3-beta1 of AltBeacon to incorporate our own fix for a crash discovered in the BeaconService class, as well as incorporate a fix for known memory issue in v2.15.1 (v2.15.2 was found to have incomparable positioning behavior to the v2.15.3-beta1, even though it fixed the memory issue). **Notice:** Because we forked the AltBeacon library to resolve the issue we found, the AltBeacon lib is now going to be a local aar (or propped). It will need to be added to your "libs" folder and you will also need to replace your gradle line with this one: compile files('libs/android-beacon-library-release.aar’). We also discovered a limitation to the current AltBeacon code which creates unexpected scanning and beacon detection behavior when the App returns to the Foreground state from the Background state. Calling startScan at each instance of this state transition resolves the issue as a temporary workaround until this is addressed in their code, and we have provided an example implementation of the fix in the MainActivity of our Example App (included with the other release artifacts). See the "onStart()" method.
 v1.9(13) to v1.9(14) | Performed a concurrency refactor to fix an issue where the SDK might cause the host App UI to freeze resulting in an Android "Not Responding" dialog, or the App to crash under certain circumstances. Maintenacnce around altbeacon integration and Beacon detection. Maintenance to improve sugarORM integration. Resolved an issue where startScan may not work on first try after App launch. Fixed an issue where calling stopScan did not hault Beacon scanning on newer versions of Android. Updated build system to Android Gradle v4.6. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.15.1 `org.altbeacon:android-beacon-library:2.15.1`.  
 v1.9(12) to	v1.9(13) | Fixed thread race condition in messaging	code. Code cleanup and dependency update. Please update your build.gradle file to use the updated versions of our third-party dependencies. Refer to the example application `build.gradle`	file for exact version callouts. This release removes support for Android versions prior to 5.1. API level 22. Earlier releases will not work.
 v1.8.6 to v1.9.12 | Increase foreground responsiveness and provide initial support for Android 8, Oreo. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.12.2 `org.altbeacon:android-beacon-library:2.12.2`. **Notice:** This release deprecates support for Android versions prior to 5.0. Earlier releases may work, but are not tested and validated.
@@ -111,7 +112,7 @@ We have tested extensively on the following hardware models and Android OS versi
 - Samsung Galaxy S9 (Android 8.0)
 - Google Pixel 2 (Android 9.0)
 
-We expect other Android devices to work similarly,
+We expect other hardware models and earlier Android OS versions (down to Lollipop 5.1) to work similarly,
 but they have not been tested by Beco.
 
 **Notice:** Beco strongly recommends devices running Android 6.0.1
@@ -133,10 +134,10 @@ v3.2.0. The SDK uses an external CMake based build system using the Android NDK.
 The Beco SDK depends on the following 3rd party libraries:
 * `org.springframework.android:spring-android-rest-template:2.0.0.M4`
 * `com.fasterxml.jackson.core:jackson-databind:2.3.2`
-* `AltBeacon` (a custom fork of the publically available AltBeacon v2.15.3-beta1)
+* `org.altbeacon:android-beacon-library:2.15.4`
 * `com.github.satyan:sugar:1.5`
 
-These libraries can be automatically obtained from the standard jcenter repositories via Gradle. **Note:** Our AltBeacon code fork will need to be a local aar (or propped), and the file is included in our SDK installation package along with the other  artifacts for this release (file name `android-beacon-library-release.aar`). Please be sure to read our release notes included above which contain important implementation steps to ensure optimal performance of the SDK with our AltBeacon code fork.
+These libraries can be automatically obtained from the standard jcenter repositories via Gradle.
 
 >#### Special Setup
 We’ve found that the `Instant Run` feature in Android Studio 2.1.2, and
@@ -222,16 +223,17 @@ aspects to provide enhancements.
  ensure reliable indoor positioning performance. The cases where these
  defaults may need adjustment are extremely rare, and even then should only
  be modified after review with our Support Team in order to preserve system
- performance. Open a ticket via [support@beco.io](support@beco.io)
+ performance. Open a ticket via [becosupport@convene.com](becosupport@convene.com)
  if you experience unexpected location performance.
- See our SDK Walkthrough document for more details.
+ 
+ See our SDK Walkthrough document for more details:
 
 ![](https://github.com/becoinc/content_images/blob/master/SDK_user_guides/Android_advanced_performance_tuning_calls.png)
 
 #### Main Interface
 The main interface between your App and Beco location data is via the
 delegate parameter in the `BecoSDKInterface` constructor specified when it
- is created by your application.
+is created by your application.
 
 It is up to your application to define a delegate that implements
 the `BecoSDKDelegate` interface. The interface defines a set of methods
@@ -271,7 +273,8 @@ Revision | Summary of Changes
 9 | Update for version SDK v1.9(12).
 10 | Update for SDK v1.9(13).
 11 | Update for SDK v1.9(14).
-12 | Update for SDK v1.9(15). 
+12 | Update for SDK v1.9(15).
+13 | Update for SDK v1.9(16).
 
 ## **LEGAL**
 
