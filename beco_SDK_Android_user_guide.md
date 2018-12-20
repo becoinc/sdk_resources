@@ -170,7 +170,7 @@ defaultConfig {
 }
 ```
 
-<#### Background to Foreground AltBeacon Performance Workaround
+>#### Background to Foreground AltBeacon Performance Workaround
 
 Due to a limitation currently present in the AltBeacon code, unexpected scanning and Beacon detection behavior occurs when an App returns to the Foreground state from the Background state. In most cases we have observed, scanning will stop entirely and not recover.
 
