@@ -9,10 +9,10 @@ Additional resources are available at our online developer site [dev.beco.io](ht
 
 >**Questions?**
 
->[support@beco.io](support@beco.io)
+>[becosupport@convene.com](becosupport@convene.com)
 
 #### License
-This document, the Beco SDK for iOS and Android, the Beco Cordova SDK, and the included sample applications are subject to the Beco SDK license agreement. A reference copy is included in the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
+This document, the Beco SDK for iOS and Android, the Beco Cordova SDK, and the included sample applications are subject to the Beco SDK license agreement. A reference copy is included in the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk/sdk-license-agreement.pdf](https://www.beco.io/files/sdk/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 ##### SDK Overview
