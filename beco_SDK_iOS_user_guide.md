@@ -12,13 +12,13 @@ Additional resources are available at our online developer site [dev.beco.io](de
 
 >**Questions?**
 
->[support@beco.io](support@beco.io)
+>[becosupport@convene.com](becosupport@convene.com)
 
 ### Version
 The current Swift 4.2 release version of the Beco SDK for iOS is v3.7.2 (20181008).
 
 ### License
-This document, the Beco SDK and the included sample iOS Apps are subject to the Beco SDK license agreement. A reference copy is included in the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
+This document, the Beco SDK and the included sample iOS Apps are subject to the Beco SDK license agreement. A reference copy is included in the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk/sdk-license-agreement.pdf](https://www.beco.io/files/sdk/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
