@@ -133,11 +133,11 @@ Our Android Example App highlights what you can customize when creating a specif
 
 *Android 8: settings-->notifications-->becosdkexampleapp*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_8_notification_menu.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_8_notification_menu.png)
 
 *Android 8: settings-->notifications-->becosdkexampleapp-->your channel name here*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_8_channel_menu.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_8_channel_menu.png)
 
 *Android 9: settings-->apps and notifications-->see all-->becosdkexampleapp*
 
@@ -145,7 +145,7 @@ Our Android Example App highlights what you can customize when creating a specif
 
 *Android 9: settings-->apps and notifications-->see all-->becosdkexampleapp-->notifications*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_9_channel_menu.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_9_channel_menu.png)
 
 >**NOTE:** By creating a Notification Channel specifically for notifications coming from the Beco Mobile SDK, you give your users the option to hide the notification either automatically (Android 9+--see the "Options in Android 9+" section) or manually (see the "Options in Earlier OS Versions" section) which creates a less invasive UX. Additionally, should users opt to hide the notification, they will *only* be hiding the notification associated with the Beco Mobile SDK. All other notifications that your App may deliver via another Channel(s) will continue to be delivered and available unless otherwise opted out by the user.
 
@@ -180,7 +180,7 @@ As with a music player App, a persistent notification is a key element to how th
 
 *Lock screen notification for our Android Example App*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_8_lockscreen.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_8_lockscreen.png)
 
 The App Bar icon is completely customizable by you and can be anything you select to match the existing branding of your App. In our Android Example App, we use a star icon. This icon will appear on the lock screen notification and as part of the Always On Display UI (if that feature is enabled by the user).
 
@@ -194,13 +194,13 @@ In Android 8, you have the ability to nest a Notification Channel allow/disallow
 
 *Android 8. Note the customizable description and the toggle to allow/disallow notifications from the Channel.*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_8_lockscreen_2.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_8_lockscreen_2.png)
 
 In Android 7 and earlier, as this pre-dates the requirement of assigning notification(s) to a channel(s), tapping the lock screen notification routes the user to the settings for the App's notifications as shown here:
 
 *Android 7. Note that pressing the notification takes you to settings where you can allow/disallow notification in the pre-Channel.*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/android_7_notification_menu.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/android_7_notification_menu.png)
 
 #### Manually Blocking/Hiding Notifications
 
@@ -214,7 +214,7 @@ In Android 8 and earlier, there is not an ability to give users a one-tap way to
 
 As in Android 8, you have the ability to nest a Notification Channel allow/disallow toggle, among other things, in the actual lock screen notification UI as shown here:
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_9_lockscreen_2.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_9_lockscreen_2.png)
 
 Note that the option you see here is different than in Android 8. Please see the next section for details.
 
@@ -226,23 +226,23 @@ Our Android Example App provides a demonstration of giving the user a choice to 
 
 *Tap the info (i) icon*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_9_i_1.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_9_i_1.png)
 
 *Select "yes"*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_9_i_2.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_9_i_2.png)
 
 *Select "ok"*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_9_i_3.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_9_i_3.png)
 
 *User deep linked to the sub menu for the appropriate Notification Channel*
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_9_i_4.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_9_i_4.png)
 
 Note how pressing the info (i) icon on a device running Android 8 or earlier results in the following message:
 
-![](https://github.com/becoinc/content_images/blob/master/content_images/android_integration_supplement/device_8_i.png)
+![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_8_i.png)
 
 If you would like to simply re-create the same high-level flow as seen in the Android Example App, replacing the (i) icon with your own implementation, you can use the following line of code to do so:
 
