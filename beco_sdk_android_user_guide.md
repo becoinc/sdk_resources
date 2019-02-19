@@ -24,12 +24,12 @@ Additional resources are available at our online developer site [dev.beco.io](de
 >[becosupport@convene.com](becosupport@convene.com)
 
 ### Version
-The current release version of the Beco SDK for Android is v1.9(16) (20181214).
+The current release version of the Beco SDK for Android is v1.10(0) (20190214).
 
 ### License
 This document, the Beco SDK and the included Android example App are subject to
 the Beco SDK license agreement. A reference copy is included in
-the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk-license-agreement.pdf](https://www.beco.io/files/sdk-license-agreement.pdf).
+the [LICENSE.md](https://github.com/becoinc/sdk_resources/blob/master/LICENSE.md) file. The *governing copy* of this agreement is available at [https://www.beco.io/files/sdk/sdk-license-agreement.pdf](https://www.beco.io/files/sdk/sdk-license-agreement.pdf).
 
 ## **CONTENTS**
 1. Identification
@@ -42,7 +42,7 @@ the [LICENSE.md](./LICENSE.md) file. The *governing copy* of this agreement is a
   * Environment
 5. Special Required Implementation Steps
   * Add String to Ensure SDK Scanning Persistence in a Multi-App Scenario
-  * Background to Foreground AltBeacon Performance Workaround
+  * Call `startScan` at Each Instance of App State Transition from Background (or Killed/Swiped) to Foreground
   * Disable Android Studio's Instant Run Feature
 6. Project Configuration
   * Permissions and Features
@@ -72,7 +72,7 @@ The third is the Java source code for the Android Example Application.
 
 The fourth and final part is this document and the generated SDK javadocs.
 
-The internal version and build of this software are 1.9(x) with a package
+The internal version and build of this software are 1.10(x) with a package
 identifier of `io.beco.sdk.android.bas`. The "x" build number is the patch
 level and is subject to change as minor, compatible changes and fixes are made.
 This complies with semantic versioning [(http://semver.org/)](http://semver.org/).
@@ -80,7 +80,8 @@ This complies with semantic versioning [(http://semver.org/)](http://semver.org/
 ## **RELEASE NOTES AND DIRECTIONS**
 Release | Notes and Directions
 ------------ | -------------
-v1.9(15) to v.1.9(16) | Incorporated the now stable AltBeacon library release v2.15.4, which now natively includes our indepenent fix for the crash we discovered in the v2.15.3-beta1 (please update your build.gradle file to use the AltBeacon library version 2.15.4 `org.altbeacon:android-beacon-library:2.15.4`). Added support for multiple Beco SDK integrated applications running simultaniously on a single mobile device. **Notice** There are specific implementation steps that must be followed for this to work. See the "Special Required Implementation Steps" section of this document below for instructions. **Notice:** Because AltBeacon v2.15.4 incorporates our independent fix natively, the special setup requirements for the Beco SDK v1.9(15) release are no longer needed: AltBeacon lib no longer needs to be a local aar (or propped) and the custom gradle line is no longer needed. (customers who have never integrated Beco SDK v1.9(15) may ignore this notice and proceed as normal). **Notice:** Due to a limitation still present in the AltBeacon code, unexpected scanning and Beacon detection behavior occurs when an App returns to the Foreground state from the Background state. See the "Special Required Implementation Steps" section of this document below for instructions on the workaround.
+v1.9(16) to v1.10.0 | Added ability for the SDK to run in either the Background or Killed (swiped close) State. Upgraded to current stable AltBeacon library release v2.16.1 (please update your build.gradle file to use the AltBeacon library v2.16.1 `org.altbeacon:android-beacon-library:2.16.1`. Battery performance optimizations. Overall stability improvements. **Notice:** There are specific implementation steps required for full SDK functionality. See the [Special Required Implementation Steps](#special-required-implementation-steps) section of this document for instructions. **Notice:** There is a known limitation in this release caused by Android OS that prevents Background/Killed State functionality to restart automatically upon a device restart or a device power down and power up cycle. We are currently building a way around this to include in a follow up patch release.
+v1.9(15) to v1.9(16) | Incorporated the now stable AltBeacon library release v2.15.4, which now natively includes our indepenent fix for the crash we discovered in the v2.15.3-beta1 (please update your build.gradle file to use the AltBeacon library version 2.15.4 `org.altbeacon:android-beacon-library:2.15.4`). Added support for multiple Beco SDK integrated applications running simultaniously on a single mobile device. **Notice:** There are specific implementation steps that must be followed for this to work. See the "Special Required Implementation Steps" section of this document below for instructions. **Notice:** Because AltBeacon v2.15.4 incorporates our independent fix natively, the special setup requirements for the Beco SDK v1.9(15) release are no longer needed: AltBeacon lib no longer needs to be a local aar (or propped) and the custom gradle line is no longer needed. (customers who have never integrated Beco SDK v1.9(15) may ignore this notice and proceed as normal). **Notice:** Due to a limitation still present in the AltBeacon code, unexpected scanning and Beacon detection behavior occurs when an App returns to the Foreground state from the Background state. See the "Special Required Implementation Steps" section of this document below for instructions on the workaround.
 v1.9(14) to v1.9(15) | Fixed multiple memory issues in the SDK. Fixed multiple crashes in the SDK. Forked v2.15.3-beta1 of AltBeacon to incorporate our own fix for a crash discovered in the BeaconService class, as well as incorporate a fix for known memory issue in v2.15.1 (v2.15.2 was found to have incomparable positioning behavior to the v2.15.3-beta1, even though it fixed the memory issue). **Notice:** Because we forked the AltBeacon library to resolve the issue we found, the AltBeacon lib is now going to be a local aar (or propped). It will need to be added to your "libs" folder and you will also need to replace your gradle line with this one: compile files('libs/android-beacon-library-release.aar’). We also discovered a limitation to the current AltBeacon code which creates unexpected scanning and beacon detection behavior when the App returns to the Foreground state from the Background state. Calling startScan at each instance of this state transition resolves the issue as a temporary workaround until this is addressed in their code, and we have provided an example implementation of the fix in the MainActivity of our Example App (included with the other release artifacts). See the "onStart()" method.
 v1.9(13) to v1.9(14) | Performed a concurrency refactor to fix an issue where the SDK might cause the host App UI to freeze resulting in an Android "Not Responding" dialog, or the App to crash under certain circumstances. Maintenacnce around altbeacon integration and Beacon detection. Maintenance to improve sugarORM integration. Resolved an issue where startScan may not work on first try after App launch. Fixed an issue where calling stopScan did not hault Beacon scanning on newer versions of Android. Updated build system to Android Gradle v4.6. **Notice:** Please update your build.gradle file to use the AltBeacon library version 2.15.1 `org.altbeacon:android-beacon-library:2.15.1`.  
 v1.9(12) to	v1.9(13) | Fixed thread race condition in messaging	code. Code cleanup and dependency update. Please update your build.gradle file to use the updated versions of our third-party dependencies. Refer to the example application `build.gradle`	file for exact version callouts. This release removes support for Android versions prior to 5.1. API level 22. Earlier releases will not work.
@@ -110,6 +111,7 @@ The Beco SDK requires a Bluetooth 4.0 (BLE, Bluetooth Smart) compatible
 
 We have tested extensively on the following hardware models and Android OS versions:
 
+- Samsung Galaxy S6 (Android 7.0)
 - Samsung Galaxy S7 (Android 7.0)
 - Samsung Galaxy S8 (Android 8.0)
 - Samsung Galaxy S9 (Android 8.0)
@@ -137,7 +139,7 @@ v3.2.0. The SDK uses an external CMake based build system using the Android NDK.
 The Beco SDK depends on the following 3rd party libraries:
 * `org.springframework.android:spring-android-rest-template:2.0.0.M4`
 * `com.fasterxml.jackson.core:jackson-databind:2.3.2`
-* `org.altbeacon:android-beacon-library:2.15.4`
+* `org.altbeacon:android-beacon-library:2.16.1`
 * `com.github.satyan:sugar:1.5`
 
 These libraries can be automatically obtained from the standard jcenter repositories via Gradle.
@@ -170,11 +172,48 @@ defaultConfig {
 }
 ```
 
->#### Background to Foreground AltBeacon Performance Workaround
+>#### Call `startScan` at Each Instance of App State Transition from Background (or Killed/Swiped) to Foreground
 
-Due to a limitation currently present in the AltBeacon code, unexpected scanning and Beacon detection behavior occurs when an App returns to the Foreground state from the Background state. In most cases we have observed, scanning will stop entirely and not recover.
+Currently, there are several user-configurable settings in Android OS that may adversely affect the performance of the Beco Mobile SDK or, in rare cases, cause the integration with your App to break. This is due to a combination of Android OS related limitations as well a limitation we have identified in the AltBeacon library. The specific scenarios are:
 
-Until this is addressed in the AltBeacon lib, the workaround is to have `startScan` called in your code at each instance of this state transition. We have provided an example implementation in the `MainActivity` of our Example App (included with the other release artifacts). See the `onStart()` method.
+- Power Saving Mode (Max) is enabled for any length of time (Samsung devices only)
+- The host App's permission to access Location Services is revoked at any time and then granted again (any device)
+
+We are undertaking work with AltBeacon directly to understand the code changes necessary in their lib to resolve for a future release. We are also working to understand how the Beco Mobile SDK can be less impacted when a device exists Samsung's Power Saving Mode (Max) and returns to the normal.
+
+For now, we have identified that calling `startScan` at each instance of App state transition from Background or Killed/Swiped to Foreground maintains expected functionality of the Beco Mobile SDK within your App once the App is brought to the Foreground at least once after either of the two scenarios above.
+
+An example implementation of this in the `MainActivity` --> `onStart()` method is the following:
+
+```
+@Override
+    protected void onStart()
+    {
+
+        super.onStart();
+        Log.d( TAG, "Main Activity Starting." );
+
+        final SharedPreferences sp = this.getPreferences( MODE_PRIVATE );
+        boolean scanStarted = sp.getBoolean( sfScanStartedKey, false );
+
+        if( scanStarted )
+        {
+            Log.i( TAG, "Restarting Scan" );
+            try
+            {
+                SharedPreferences.Editor spEdit = sp.edit();
+                spEdit.putBoolean( sfScanStartedKey, false ); // make sure the scan restarts.
+                spEdit.commit();
+                this.becoSdk.startScan();
+            }
+            catch (CredentialsNotSetException e)
+            {
+                reportError( BecoSDKErrorCode.CredentialMismatch );
+            }
+        }
+
+    }
+```
 
 >#### Disable Android Studio's Instant Run Feature
 
@@ -301,6 +340,7 @@ Revision | Summary of Changes
 11 | Update for SDK v1.9(14).
 12 | Update for SDK v1.9(15).
 13 | Update for SDK v1.9(16).
+14 | Update for SDK v1.10(0).
 
 ## **LEGAL**
 
