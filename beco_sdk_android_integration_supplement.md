@@ -2,25 +2,25 @@
 
 # **BECO MOBILE SDK FOR ANDROID™: INTEGRATION SUPPLEMENT**
 
-This document is a supplement to integration efforts involving all versions of the Beco Mobile SDK for Android beginning with v1.10.0. The v1.10.0 release introduced the ability for the Beco Mobile SDK to continue to scan for and detect the closest Beco Beacon, as well as post that location update to the Beco Cloud, even when the host App is in the Background or Killed (swiped closed) State. This major update allows Android devices to join iOS devices in creating a continuous Beco data stream throughout the day, enhancing both your in-App functionality reliant on the real-time data as well as your long term spatial analytics.
+This document is a supplement to integration efforts involving all versions of the Beco Mobile SDK for Android beginning with v1.10.0. The v1.10.0 release introduced the ability for the Beco Mobile SDK to continue to scan for and detect the closest Beco Beacon, as well as post that location update to the Beco Cloud, even when the host App is in either the Background or Killed (swiped closed) State. This major update allows Android devices to join iOS devices in creating a continuous Beco data stream throughout the day, enhancing both your in-App functionality reliant on the real-time data as well as your long term spatial analytics.
 
 Given the underlaying architecture of Android OS, in particular Android 8 and above, providing services in the Background/Killed State is achieved by utilizing the Android notification framework similar to how a music player App does so. Therefore, a successful integration of the Beco Mobile SDK for Android must also include your App having a persistent notification in the App Bar.
 
 You can create your own customizable notification and notification ID, or you can use your App's existing notification if you already have one as shown here:
 
 ```
- if(becoSdk == null) {
+if(becoSdk == null) {
 
-          /* Create your own customizable notification and notification ID.
-            Or you can use your application's existing notification if you already have one.  */
-          Notification notification = createNotification(); //Create your own customizable notification
-          int notificationID = 1234; //Set your notification ID
+	   /* Create your own customizable notification and notification ID.
+	   Or you can use your application's existing notification if you already have one.  */
+	   Notification notification = createNotification(); //Create your own customizable notification
+	   int notificationID = 1234; //Set your notification ID
 
-          /* Then pass your notification and notification ID into the BecoSDKInterface constructor. */
-          becoSdk = new BecoSDKInterface( this, this, notification, notificationID);
-          becoSdk.setCredentials( mServerHostname, mServerUsername, mServerPassword );
+  	 /* Then pass your notification and notification ID into the BecoSDKInterface constructor. */
+	   becoSdk = new BecoSDKInterface( this, this, notification, notificationID);
+	   becoSdk.setCredentials( mServerHostname, mServerUsername, mServerPassword );
 
-  }
+ }
 ```
 
 >**NOTE:** If you pass the Beco Mobile SDK's notification through to an existing notification, be sure you also have a Notification Channel to assign it to that would be acceptable, from a UX perspective, to persist indefinitely. Convene recommends that your App has a dedicated Notification Channel specifically for the SDK in order to minimize user impact and provide greater flexibility (see the "Notification Channel" section below for details).
