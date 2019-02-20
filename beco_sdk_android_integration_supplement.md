@@ -147,7 +147,7 @@ Our Android Example App highlights what you can customize when creating a specif
 
 ![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_9_channel_menu.png)
 
->**NOTE:** By creating a Notification Channel specifically for notifications coming from the Beco Mobile SDK, you give your users the option to hide the notification either automatically (Android 9+--see the "Options in Android 9+" section) or manually (see the "Options in Earlier OS Versions" section) which creates a less invasive UX. Additionally, should users opt to hide the notification, they will *only* be hiding the notification associated with the Beco Mobile SDK. All other notifications that your App may deliver via another Channel(s) will continue to be delivered and available unless otherwise opted out by the user.
+>**NOTE:** By creating a Notification Channel specifically for notifications coming from the Beco Mobile SDK, you give your users the option to hide the notification either automatically (Android 9--see the "Options in Android 9+" section) or manually (see the "Options in Earlier OS Versions" section) which creates a less invasive UX. Additionally, should users opt to hide/silence the notification, they will *only* be hiding the notification associated with the Beco Mobile SDK. All other notifications that your App may deliver via another Channel(s) will continue to be delivered and available unless otherwise opted out by the user.
 
 ## **NOTIFICATION**
 
@@ -178,13 +178,15 @@ Once a dedicated Notification Channel has been created within your App, the next
 
 As with a music player App, a persistent notification is a key element to how the Beco Mobile SDK within your App can continue to deliver consistent services even when your App is not in the Foreground State. However, *unlike* a music player App, in order to ensure a consistent data stream to power location-driven features as users move around your physical spaces, we have engineered the Beco Mobile SDK with the ability to run even if your App is put in to the Killed State (swiped closed) and in this state the notification will continue to display on the lock screen as well as on the App Bar.
 
+>**NOTE:** The notification can be launched as often as needed using the same notification and notification ID.  For example, if the user disables or minimizes the notification(s) in the Channel (or disables notifications at the App level, all Channels) and then re-enables it, the notification may need to be re-launched in order to be visible to the user. The Beco Mobile SDK will continue to function and provide location updates as expected in all these scenarios, including if the user disables notification at the App or Channel level.
+
 *Lock screen notification for our Android Example App*
 
 ![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/device_8_lockscreen.png)
 
 The App Bar icon is completely customizable by you and can be anything you select to match the existing branding of your App. In our Android Example App, we use a star icon. This icon will appear on the lock screen notification and as part of the Always On Display UI (if that feature is enabled by the user).
 
-On the lock screen, a user can interact with the notification and so the text and the content of the notification is customizable by you - including how the user might hide or mute the notification (see the following two sections on OS version specific options, as this dictates what users can and can't do from an interactivity perspective with muting/hiding the notification depending on the version they are running).
+On the lock screen, a user can interact with the notification and so the text and the content of the notification is customizable by you - including how the user might hide or mute the notification (see the following two sections on OS version specific options, as this dictates what users can and can't do from an interactivity perspective with hiding/minimizing the notification depending on the version they are running).
 
 ## **OPTIONS IN EARLIER OS VERSIONS**
 
@@ -198,15 +200,15 @@ In Android 8, you have the ability to nest a Notification Channel allow/disallow
 
 In Android 7 and earlier, as this pre-dates the requirement of assigning notification(s) to a channel(s), tapping the lock screen notification routes the user to the settings for the App's notifications as shown here:
 
-*Android 7. Note that pressing the notification takes you to settings where you can allow/disallow notification in the pre-Channel.*
+*Android 7. Note that pressing the notification takes you to settings where you can allow/disallow notifications as a whole, but no option for Channel-specific settings.*
 
 ![](https://github.com/becoinc/content_images/blob/master/android_integration_supplement/android_7_notification_menu.png)
 
 #### Manually Blocking/Hiding Notifications
 
-In Android 8 and earlier, there is not an ability to give users a one-tap way to mute/hide the notification from a specific Channel. Instead, using a combination of the lock screen UI that is available in the version Android the user is running, as well as by navigating to settings, the user is able to manually do this.
+In Android 8 and earlier, there is not an ability to give users a one-tap way to hide/minimize the notification from a specific Channel. Instead, using a combination of the lock screen UI that is available in the version Android the user is running, as well as by navigating to settings, the user is able to manually hide notifications.
 
->**NOTE:** It is expected from our testing that once the notification coming from the Beco Mobile SDK is muted/hidden, there may be a system notification generated that replaces it. The user can hide this notification as well using the same methodology.
+>**NOTE:** It is expected from our testing that once the notification coming from the Beco Mobile SDK is hidden, there may be a system notification generated that replaces it. The user can hide this notification as well using the same methodology.
 
 ## **OPTIONS IN ANDROID 9+**
 
