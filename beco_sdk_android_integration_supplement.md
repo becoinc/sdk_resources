@@ -259,7 +259,7 @@ If you would rather create a completely custom experience, the following line ca
 BecoSDKInterface.directUserToNotificationSettings(context, NOTIFICATION_CHANNEL_ID);
 ```  
 
->NOTE: This is where the concept of having distinct Notification Channels within your App becomes important and useful, as previously noted above: you can create a flow that guides the user to hide only notifications from the specific channel you have dedicated to the SDK.
+>**NOTE:** This is where the concept of having distinct Notification Channels within your App becomes important and useful, as previously noted above: you can create a flow that guides the user to hide only notifications from the specific channel you have dedicated to the SDK.
 
 ## **LEGAL**
 
