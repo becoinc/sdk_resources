@@ -175,14 +175,14 @@ defaultConfig {
 
 >#### Call `startScan` at Each Instance of App State Transition from Background (or Killed/Swiped) to Foreground
 
-Currently, there are several user-configurable settings in Android OS that may adversely affect the performance of the Beco Mobile SDK or, in rare cases, cause the integration with your App to break. This is due to a combination of Android OS related limitations as well a limitation we have identified in the AltBeacon library. The specific scenarios are:
+Currently, there are several user-configurable setting and device state changes in Android OS that will prohibit the Beco Mobile SDK from functioning properly once all settings and/or the device itself is returned to the required defaults. This is due to a combination of factors related to AltBeacon and the manufacturer-specific customizations of the Android OS itself. The specific setting and device state changes are:
 
-- Power Saving Mode (Max) is enabled for any length of time (Samsung devices only)
-- The host App's permission to access Location Services is revoked at any time and then granted again (any device)
+- The device is returned to normal mode after Power Saving Mode (Max) has been enabled for any length of time (Samsung devices only)
+- The Beco Mobile SDK host App's permission to access Location Services is revoked at any time and then granted again (any device)
 
-We are undertaking work with AltBeacon directly to understand the code changes necessary in their lib to resolve for a future release. We are also working to understand how the Beco Mobile SDK can be less impacted when a device exists Samsung's Power Saving Mode (Max) and returns to the normal.
+We are investigating how the Beco Mobile SDK could automatically recover and begin functioning properly again after these specific setting and device state changes. This will be the subject of a future optimization release.
 
-For now, we have identified that calling `startScan` at each instance of App state transition from Background or Killed/Swiped to Foreground maintains expected functionality of the Beco Mobile SDK within your App once the App is brought to the Foreground at least once after either of the two scenarios above.
+For now, we have identified a workaround. Calling `startScan` at each instance of App state transition from Background or Killed/Swiped **to** Foreground will resume the expected functionality of the Beco Mobile SDK as soon as the user calls the App to the Foreground at least once after either of the two scenarios above.
 
 An example implementation of this in the `MainActivity` --> `onStart()` method is the following:
 
