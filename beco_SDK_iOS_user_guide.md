@@ -8,7 +8,7 @@ The Beco SDK provides developers a rapid path towards Beco Beacon integration. W
 
 Here, we will cover the fundamentals of configuring and building your project with our SDK in Xcode. Be sure to also read our SDK Walkthrough document, which focuses on the various features and functions of the SDK itself for the purposes of integration.
 
-Additional resources are available at our online developer site [dev.beco.io](dev.beco.io).
+Additional resources are available at our online developer site [dev.beco.io](http://dev.beco.io).
 
 >**Questions?**
 
